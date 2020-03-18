@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>History of Computer Communications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.typekit.net/zxm4sio.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+<nav>
+  <div class="navwrap">
+    <a class="logo" href="#">The History Of Computer Communications</a>
+    <div class="nav">
+      <div class="navbar">
+        <a href="javascript:void(0)" title="Home">Home</a>    
+        <a href="javascript:void(0)" class="active" onclick="sidemenu();" title="Explore">Explore</a>    
+        <a href="javascript:void(0)"  title="Contribute">Contribute</a>    
+      </div>
+      <div class="search">
+        <svg id="vertical" version="1.1" x="0px" y="0px" xml:space="preserve">
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" />
+              <stop offset="50%" style="stop-color:rgba(255,255,255,1);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#grad1)" d="M0.4,0L0.4,0L1,20.2L0.4,41l0,0L0,20.4L0.4,0z"/>
+        </svg>
+        <img id="srch" onclick="showResults();" src="img/search.svg">
+        <input type="text" name="search" placeholder="Search...">
+      </div>
+    </div>
+  </div>
+</nav>
+
+<mobilemenu>
+  <div id="menutab" onclick="sidemenu();">
+    <div id="burg" class="burg burg--spin">
+      <div class="burg-box">
+        <div class="burg-inner"></div>
+      </div>
+    </div>
+  </div>
+</mobilemenu>
+<div class="content">
+  <div id="sidemenu">
+    <div class="menu">
+      <h1>Explore</h1>
+      <div class="hr"></div>
+      <ol class="tree">
+		<li>
+          <label for="folder1">Table of Contents</label>
+          <input type="checkbox" id="folder1" checked /> 
+            <ol>
+			  <li>
+				<label for="subfolder1">Background</label>
+				<input type="checkbox" id="subfolder1" /> 
+			  </li>
+			  <li>
+				<label for="subfolder2">Introduction</label>
+				<input type="checkbox" id="subfolder2" /> 
+			  </li>
+			  <li>
+				<label for="subfolder3">Data Communications: Emergence 1956-1968</label>
+				<input type="checkbox" id="subfolder3" /> 
+			  </li>
+			  <li>
+				<label for="subfolder4">Networking: Vision and Packet Switching 1959 - 1968</label>
+				<input type="checkbox" id="subfolder4" /> 
+			  </li>		  
+			  <li>
+				<label for="subfolder5">Data Communications: Market Competition 1969-1972</label>
+				<input type="checkbox" id="subfolder5" checked /> 
+				<ol>
+				  <li class="file"><a href="">Overview</a></li>
+				  <li class="file"><a href="">Minicomputers, Distributed Data Processing and Microprocessors</a></li>
+				  <li class="file"><a href="">The Justice Department: IBM and AT&T</a></li>
+				  <li class="file"><a href="">Codex: LSI modems and Front-End Processors: 1973</a></li>
+				  <li class="file"><a href="">Wesley Chu and the Statistical Multiplexer 1966-1975</a></li>
+				  <li class="file"><a href="">Codex: The LSI Modem and Competition 1974-1975</a></li>
+				  <li class="file"><a href="">ADS: Rebirth as Micom 1973-1976</a></li>
+				  <li class="file active"><a href="">CPE Certification and Computer Inquiry II</a></li>
+				  <li class="file"><a href="">Codex: The Statistical Multiplexer and Competition 1975-1976</a></li>
+				  <li class="file"><a href="">Modems, Multiplexers and Networks 1976-1978</a></li>
+				  <li class="file"><a href="">Micom: The Statistical Multiplexer 1976-1978</a></li>
+				  <li class="file"><a href="">Codex and Motorola 1977-1978</a></li>
+				  <li class="file"><a href="">Micom: Meteoric Success and Competition 1978-1979</a></li>
+				  <li class="file"><a href="">In Perspective</a></li>
+				</ol>
+			  </li>
+			  <li>
+				<label for="subfolder6">Networking: Diffusion 1973-1979</label>
+				<input type="checkbox" id="subfolder6" /> 
+			  </li>
+			  <li>
+				<label for="subfolder7">Networking: Emergence 1979-1981</label>
+				<input type="checkbox" id="subfolder7" /> 
+			  </li>
+			  <li>
+				<label for="subfolder8">Networking: Turbulence 1981-1982</label>
+				<input type="checkbox" id="subfolder8" /> 
+			  </li>
+			  <li>
+				<label for="subfolder9">Standards: An Enabling Institution 1979-1984</label>
+				<input type="checkbox" id="subfolder9" /> 
+			  </li>
+			  <li>
+				<label for="subfolder10">Networking: Market Order: LANs 1983-1986</label>
+				<input type="checkbox" id="subfolder10" /> 
+			  </li>
+			  <li>
+				<label for="subfolder11">Data Communications: Adaptation 1979-1986</label>
+				<input type="checkbox" id="subfolder11" /> 
+			  </li>
+			</ol>
+		</li>
+		<li>
+		  <label for="folder2">Market Sector</label> <input type="checkbox" id="folder2" /> 
+		</li>
+		<li>
+		  <label for="folder3">Company/Organization</label> <input type="checkbox" id="folder3" /> 
+		</li>
+		<li>
+		  <label for="folder4">Interview Transcripts</label> <input type="checkbox" id="folder4" /> 
+		</li>
+      </ol>
+    </div>
+  </div>
+  <div id="search-results">
+    <a href="javascript:void(0)" class="closebtn" onclick="hideResults()">&times;</a>
+  </div>
+  <div class="client-content">
+    <section>
+      <h1>Chapter 7 Networking: Emergence 1979-1981 LANs and DataPBXs</h1>
+      <p>7.13 Ralph Ungermann and Charlie Bass and the
+Founding of Ungermann-Bass</p>
+      <p>Forced out of Zilog at the end of 1978, Ungermann immediately began looking for the next great technological opportunity. His inclinations led him to communications: a field he had been in ever since 1967-1970 when he served on the staff of Art Collins, the founder of Collins Radio. Ungermann had participated in creating a time division multiplexer cabling system interconnecting much of the equipment in their state-of-the-art semiconductor factory — a precursor of local area networking. Leaving Collins Radio for Western Digital, Ungermann managed the development of the UART (Universal Asynchronous Receiver and Transceiver) semiconductor chip; recognized as the first major communications semiconductor chip, funded by DEC and designed in large measure by Bell of DEC. He then joined Intel and created the first USART (Universal Synchronous Asynchronous Receiver and Transceiver) chip. At Zilog, he followed up with the very successful SIO chip, a two-port serial asynchronous/synchronous interface chip, an extension of his previous work. He remembers his search:</p>
+      <blockquote><p>I talked to fifty companies and to a lot of people about what was going on and where they were going. What struck me was that every computer company was working on networking technology and every one told me the same thing: ‘Boy, just think, if we can control the wire, we’re going to control the business.’ It was clear to me that that’s not what the customer wanted and that there was an opportunity there.</p></blockquote>
+      <p>Ungermann began talking to others in networking such as Metcalfe, wanting to be sure he was not deceiving himself, further perfecting his vision.<br></p>
+      <p>Meanwhile, for those Ungermann had hired at Zilog and left behind, it became a waiting game to see what Exxon, the parent company, would do next. Surely Exxon management must know their loyalties ran to Ungermann, not Zilog, and certainly not to Exxon. Not that many would have mourned their fate, for the self-confident swagger of Zilog that kept people working until they nearly fell asleep from exhaustion had sadly slipped into an unfamiliar world of tiring doubt that made coming to work reason to find new jobs. Ungermann recalls:</p>
+      <blockquote><p>Charlie [Bass] decided, as everybody did, that his career wasn’t going to be at Zilog, so we decided to get together. We started kicking things around about what we’d do.</p></blockquote>
+      <p>Even as these conversations were going on, the new Zilog management team led by Manny Fernandez, recruited from Fairchild Semiconductor, tried to make sense of its future. To strengthen management, Fernandez raided his former employer and hired William (Bill) Carrico to be marketing manager for semiconductors. Fernandez soon asked Carrico to investigate the troubled systems group; the one Ungermann had led.<br></p>
+      <p>Recognizing the need to bring focus to an ambitious list of development projects, Carrico convened a series of strategy meetings in May-June 1979 attended by Bass, Estrin, Davidson, Joe Kennedy, Dave Folger and Phil Bellinger. Having just introduced their Z-8000 microprocessor, much of the discussion centered around issues such as: What is the systems business given microcomputers?
+Can microcomputers be architected to perform as one larger computer? Should they build a multi-user minicomputer? All questions begging answers to bring coherence to their product plans. In the sorting out of what needed to be done, and which projects should be cut, Folger suggested Ariel be used to interconnect more than just Z-80 or Z-8000 microcomputers, and be reconceptualized as an “intelligent wire.” One use could be to interconnect terminals to Zilog minicomputers as a terminal multiplexer.</p>
+    </section>
+  </div>
+  <footer>Footer</footer>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
