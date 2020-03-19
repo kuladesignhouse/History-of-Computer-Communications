@@ -1,8 +1,12 @@
 :root {
   --bg-blue: #03485C;
-  --gray-text: #414141;
-  --gray-subtext: rgba(65, 65, 65, 0.8);
   --sidebar-bg: #E8E8E8;
+  --gray: #7E7E7E;
+  --gray-next: #626262;
+  --gray-dark: #5F5F5F;
+  --gray-darker: #414141;
+  --hovered: #F4F4F4;
+  --selected: #FCFCFC;
 }
 * {
   box-sizing: border-box;
@@ -22,7 +26,8 @@ body {
   font-style: normal;
 }
 body::-webkit-scrollbar,
-.content::-webkit-scrollbar {
+.content::-webkit-scrollbar,
+#sidemenu::-webkit-scrollbar {
   display: none;
 }
 .content {
@@ -32,18 +37,19 @@ body::-webkit-scrollbar,
   overflow: none;
   padding-top: 40px;
   margin-top: -49px; /* revisit this . . ? */
+  z-index:0;
 }
-mobilemenu {
-  white-space: nowrap;
-  z-index: 2;
-  display: none;
-  position: sticky;
-  display: contents;
-}
-mobilemenu #menutab {
+#sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  background-color: red;
+  width:100%;
+  z-index: 1;
+}
+
+#sticky #menutab {
+  position: absolute;
   background-color: #fff;
   margin-left: 10px;
   border: 1px solid;
@@ -125,52 +131,31 @@ mobilemenu #menutab {
     bottom: 0;
     transform: rotate(-90deg);
     transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
-/* end menu spin */
-mobilemenu #menutab > svg {
+#menutab > svg {
   width: 42px;
 }
+/* end menu spin */
+
 #sidemenu {
-  height: auto;
-  width: 300px;
   position: absolute;
-  z-index: 1;
-  top: 0px;
+  top: 0;
   left: -300px;
   background-color: var(--sidebar-bg);
+  width:300px;
+  max-height: 100vh;
+  z-index: 2;
   overflow-x: hidden;
   transition: 0.4s;
   box-shadow: none;
-  color: var(--gray-text);
-  padding-top: 30px;
+  color: var(--gray-darker);
   opacity: 0;
+  padding-top: 50px;
 }
 #sidemenu.slide-in-left {
   left: 0px;
+  top: 0px;
   box-shadow: 12px 1px 6px rgba(0,0,0,0.18);
   opacity: 1;
-}
-.menu {
-  padding: 10px 0px 10px 10px;
-  margin-top: 25px;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-.menu > h1 {
-  color: var(--bg-blue);
-  margin: 0;
-  font-size: 24px;
-}
-.menu > .hr {
-  border: none;
-  height: 2px;
-  width: 187px;
-  color: var(--bg-blue);
-  background-color: var(--bg-blue);
-  margin: 5px 0px 10px 0px;
-}
-.menu > ol {
-  /*padding-inline-start: 30px;*/
 }
 #search-results {
   height: 100vh;
@@ -184,7 +169,7 @@ mobilemenu #menutab > svg {
   transition: 0.5s;
   padding-top: 60px;
   box-shadow: none;
-  color: var(--gray-text);
+  color: var(--gray-darker);
 }
 #search-results a {
   padding: 8px 8px 8px 32px;
@@ -232,6 +217,7 @@ nav {
   align-items: center;
   width: 100%;
   background-color: #003A4B;
+  z-index: 4;
 }
 .navwrap > a.logo {
   color: #fff;
@@ -338,21 +324,22 @@ nav {
   opacity: 1;
 }
 .client-content {
-  padding: 25px;
-  max-width: 1000px;
+  padding: 50px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 section {
   padding: 10px;
 }
 section > h1 {
-  color: var(--gray-text);
+  color: var(--gray-darker);
   font-size: 22px;
   font-family: acumin-pro, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 section > p {
-  color: var(--gray-text);
+  color: var(--gray-darker);
   font-size: 16px;
   font-family: zenon,sans-serif;
   font-weight: 500;
@@ -379,7 +366,7 @@ blockquote p {
   font-family: zenon,sans-serif;
   font-weight: 500;
   font-style: italic;
-  color: var(--gray-text);
+  color: var(--gray-darker);
   font-size: 16.3px;
   line-height: 25px;
 }
@@ -443,7 +430,8 @@ footer {
     font-size: 16px;
   }
   .client-content {
-    padding: 25px 59px;
+    padding: 59px 70px;
+    max-width: 700px;
   }
   section > h1 {
     font-size: 26px;
@@ -459,7 +447,7 @@ footer {
 }
 @media screen and (min-width: 1024px) {
   .client-content {
-    padding: 25px 146px;
+    padding: 25px 25px;
   }
 }
 @media screen and (min-width: 1025px) {
@@ -469,7 +457,7 @@ footer {
    opacity: 1;
   }
   .client-content {
-    margin-left: 300px;
+    margin: 0px 0px 0px 300px;
     padding: 25px 55px;
   }
   #menutab {
@@ -489,7 +477,7 @@ footer {
   }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1300px) {
   .client-content {
     margin: 0 auto;
   }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/zxm4sio.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/list.css">
+  <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
 <nav>
@@ -35,102 +35,182 @@
   </div>
 </nav>
 
-<mobilemenu>
-  <div id="menutab" onclick="sidemenu();">
-    <div id="burg" class="burg burg--spin">
-      <div class="burg-box">
-        <div class="burg-inner"></div>
+  <div id="sticky">
+    <div id="menutab" onclick="sidemenu();">
+      <div id="burg" class="burg burg--spin">
+        <div class="burg-box">
+          <div class="burg-inner"></div>
+        </div>
       </div>
     </div>
-  </div>
-</mobilemenu>
-<div class="content">
-  <div id="sidemenu">
-    <div class="menu">
-      <h1>Explore</h1>
-      <div class="hr"></div>
-      <ol class="tree">
-		<li>
-          <label for="folder1">Table of Contents</label>
-          <input type="checkbox" id="folder1" checked /> 
-            <ol>
-			  <li>
-				<label for="subfolder1">Background</label>
-				<input type="checkbox" id="subfolder1" /> 
-			  </li>
-			  <li>
-				<label for="subfolder2">Introduction</label>
-				<input type="checkbox" id="subfolder2" /> 
-			  </li>
-			  <li>
-				<label for="subfolder3">Data Communications: Emergence 1956-1968</label>
-				<input type="checkbox" id="subfolder3" /> 
-			  </li>
-			  <li>
-				<label for="subfolder4">Networking: Vision and Packet Switching 1959 - 1968</label>
-				<input type="checkbox" id="subfolder4" /> 
-			  </li>		  
-			  <li>
-				<label for="subfolder5">Data Communications: Market Competition 1969-1972</label>
-				<input type="checkbox" id="subfolder5" checked /> 
-				<ol>
-				  <li class="file"><a href="">Overview</a></li>
-				  <li class="file"><a href="">Minicomputers, Distributed Data Processing and Microprocessors</a></li>
-				  <li class="file"><a href="">The Justice Department: IBM and AT&T</a></li>
-				  <li class="file"><a href="">Codex: LSI modems and Front-End Processors: 1973</a></li>
-				  <li class="file"><a href="">Wesley Chu and the Statistical Multiplexer 1966-1975</a></li>
-				  <li class="file"><a href="">Codex: The LSI Modem and Competition 1974-1975</a></li>
-				  <li class="file"><a href="">ADS: Rebirth as Micom 1973-1976</a></li>
-				  <li class="file active"><a href="">CPE Certification and Computer Inquiry II</a></li>
-				  <li class="file"><a href="">Codex: The Statistical Multiplexer and Competition 1975-1976</a></li>
-				  <li class="file"><a href="">Modems, Multiplexers and Networks 1976-1978</a></li>
-				  <li class="file"><a href="">Micom: The Statistical Multiplexer 1976-1978</a></li>
-				  <li class="file"><a href="">Codex and Motorola 1977-1978</a></li>
-				  <li class="file"><a href="">Micom: Meteoric Success and Competition 1978-1979</a></li>
-				  <li class="file"><a href="">In Perspective</a></li>
-				</ol>
-			  </li>
-			  <li>
-				<label for="subfolder6">Networking: Diffusion 1973-1979</label>
-				<input type="checkbox" id="subfolder6" /> 
-			  </li>
-			  <li>
-				<label for="subfolder7">Networking: Emergence 1979-1981</label>
-				<input type="checkbox" id="subfolder7" /> 
-			  </li>
-			  <li>
-				<label for="subfolder8">Networking: Turbulence 1981-1982</label>
-				<input type="checkbox" id="subfolder8" /> 
-			  </li>
-			  <li>
-				<label for="subfolder9">Standards: An Enabling Institution 1979-1984</label>
-				<input type="checkbox" id="subfolder9" /> 
-			  </li>
-			  <li>
-				<label for="subfolder10">Networking: Market Order: LANs 1983-1986</label>
-				<input type="checkbox" id="subfolder10" /> 
-			  </li>
-			  <li>
-				<label for="subfolder11">Data Communications: Adaptation 1979-1986</label>
-				<input type="checkbox" id="subfolder11" /> 
-			  </li>
-			</ol>
-		</li>
-		<li>
-		  <label for="folder2">Market Sector</label> <input type="checkbox" id="folder2" /> 
-		</li>
-		<li>
-		  <label for="folder3">Company/Organization</label> <input type="checkbox" id="folder3" /> 
-		</li>
-		<li>
-		  <label for="folder4">Interview Transcripts</label> <input type="checkbox" id="folder4" /> 
-		</li>
-      </ol>
+    <div id="sidemenu">
+      <div class="sidenav">
+        <h1>Explore</h1>
+        <div class="hr"></div>
+        <ul class="nav__list" >
+          <li>
+            <input id="group-1" type="checkbox" checked hidden />
+            <label for="group-1">
+              <div>Table of Contents</div>
+              <svg xmlns="http://www.w3.org/2000/svg" >
+                <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+              </svg>
+            </label>
+            <ul class="group-list">
+              <li>
+                <input id="sub-group-1" type="checkbox" hidden />
+                <label for="sub-group-1">
+                  <div>Background</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-2" type="checkbox" hidden />
+                <label for="sub-group-2">
+                  <div>Introduction</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-3" type="checkbox" hidden />
+                <label for="sub-group-3">
+                  <div>Data Communications: Emergence 1956-1968</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-4" type="checkbox" hidden />
+                <label for="sub-group-4">
+                  <div>Networking: Vision and Packet Switching 1959 - 1968</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-5" type="checkbox" checked hidden />
+                <label for="sub-group-5">
+                  <div>Data Communications: Market Competition 1969-1972</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+                <ul class="sub-group-list">
+                  <li><a href="#">Overview</a></li>
+                  <li><a href="#" class="selected">Minicomputers, Distributed Data Processing and Microprocessors</a></li>
+                  <li><a href="#">The Justice Department: IBM and AT&T</a></li>
+                  <li><a href="#">Codex: LSI modems and Front-End Processors: 1973</a></li>
+                  <li><a href="#">Wesley Chu and the Statistical Multiplexer 1966-1975</a></li>
+                  <li><a href="#">Codex: The LSI Modem and Competition 1974-1975</a></li>
+                  <li><a href="#">ADS: Rebirth as Micom 1973-1976</a></li>
+                  <li><a href="#">CPE Certification and Computer Inquiry II</a></li>
+                  <li><a href="#">Codex: The Statistical Multiplexer and Competition 1975-1976</a></li>
+                  <li><a href="#">Modems, Multiplexers and Networks 1976-1978</a></li>
+                  <li><a href="#">Micom: The Statistical Multiplexer 1976-1978</a></li>
+                  <li><a href="#">Codex and Motorola 1977-1978</a></li>
+                  <li><a href="#">Micom: Meteoric Success and Competition 1978-1979</a></li>
+                  <li><a href="#">In Perspective</a></li>
+                </ul>
+              </li>
+              <li>
+                <input id="sub-group-6" type="checkbox" hidden />
+                <label for="sub-group-6">
+                  <div>Networking: Diffusion 1973-1979</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-7" type="checkbox" hidden />
+                <label for="sub-group-7">
+                  <div>Networking: Emergence 1979-1981</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-8" type="checkbox" hidden />
+                <label for="sub-group-8">
+                  <div>Networking: Turbulence 1981-1982</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-9" type="checkbox" hidden />
+                <label for="sub-group-9">
+                  <div>Standards: An Enabling Institution 1979-1984</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-10" type="checkbox" hidden />
+                <label for="sub-group-10">
+                  <div>Networking: Market Order: LANs 1983-1986</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input id="sub-group-11" type="checkbox" hidden />
+                <label for="sub-group-11">
+                  <div>Data Communications: Adaptation 1979-1986</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                  </svg>
+                </label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input id="group-2" type="checkbox" hidden />
+            <label for="group-2">
+              <div>Market Sector</div>
+              <svg xmlns="http://www.w3.org/2000/svg" >
+                <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+              </svg>
+            </label>
+          </li>
+          <li>
+            <input id="group-3" type="checkbox" hidden />
+            <label for="group-3">
+              <div>Company/Organization</div>
+              <svg xmlns="http://www.w3.org/2000/svg" >
+                <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+              </svg>
+            </label>
+          </li>
+          <li>
+            <input id="group-4" type="checkbox" hidden />
+            <label for="group-4">
+              <div>Interview Transcripts</div>
+              <svg xmlns="http://www.w3.org/2000/svg" >
+                <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+              </svg>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div id="search-results">
+      <a href="javascript:void(0)" class="closebtn" onclick="hideResults()">&times;</a>
     </div>
   </div>
-  <div id="search-results">
-    <a href="javascript:void(0)" class="closebtn" onclick="hideResults()">&times;</a>
-  </div>
+
+<div class="content">
   <div class="client-content">
     <section>
       <h1>Chapter 7 Networking: Emergence 1979-1981 LANs and DataPBXs</h1>
