@@ -456,13 +456,13 @@ footer {
    box-shadow: 12px 1px 6px rgba(0,0,0,0.18);
    opacity: 1;
   }
-  .client-content {
-    margin: 0px 0px 0px 300px;
-    padding: 25px 55px;
-  }
   #menutab {
     opacity: 0;
     pointer-events: none;
+  }
+  .client-content {
+    margin: 0px 0px 0px 300px;
+    padding: 25px 55px;
   }
   section > h1 {
     font-size: 24px;
@@ -476,7 +476,11 @@ footer {
     line-height: 25px;
   }
 }
-
+@media screen and (min-width: 1200px) {
+  .navwrap {
+    max-width: 85%;
+  }
+}
 @media screen and (min-width: 1300px) {
   .client-content {
     margin: 0 auto;
