@@ -82,7 +82,6 @@ nav {
 .navbar > a {
   height: 37px;
   padding: 6px 10px 0 10px;
-  color: #fff;
   text-decoration: none;
   border-top: 3px solid transparent;
   display:inline-block;
@@ -90,22 +89,24 @@ nav {
   font-size: 15px;
   font-family: acumin-pro, sans-serif;
   font-style: normal;
+  color: rgba(255,255,255,0.8);
 }
 .navbar > a::before {
   display: block;
   content: attr(title);
-  font-weight: 700;
   height: 0;
   overflow: hidden;
   visibility: hidden;
 }
 .navbar > a:hover,
 .navbar > a.active {
-  border-top: 3px solid #fff;
-  font-weight: 700;
   background-color: #fff;
   color: #003A4B;
   padding: 6px 10px 0 10px;
+}
+.navbar > a.active {
+  border-top: 3px solid #fff;
+  font-weight: 700;
 }
 svg#vertical {
   /*background-image: -webkit-linear-gradient(top, transparent, #fff, transparent);
@@ -369,8 +370,9 @@ ul.nav__list {
   align-items: center;
   cursor: pointer;
 }
-div.sidenav li > label > div {
+.sidenav li > label > div {
   width: calc(100% - 18px);
+  padding-right: 10px;
 }
 .sidenav label svg {
   width: 14px;
@@ -382,6 +384,9 @@ div.sidenav li > label > div {
   font-size: 18px;
   margin-bottom: 12px;
   padding-right: 25px;
+}
+.nav__list > li > input[type=checkbox] + label > svg path {
+  stroke-width: 3;
 }
 .nav__list > li > input[type=checkbox]:hover + label,
 .nav__list > li > input[type=checkbox]:focus + label {
@@ -412,15 +417,40 @@ div.sidenav li > label > div {
 }
 .group-list > li > input[type=checkbox]:hover + label > svg path {
   stroke: var(--gray-darker);
-  stroke-width: 2;
 }
 .group-list > li > input[type=checkbox]:checked + label > svg path,
 .group-list > li > input[type=checkbox]:checked + label > svg path,
 .group-list > li > input[type=checkbox]:checked:hover + label > svg path,
 .group-list > li > input[type=checkbox]:checked:focus + label > svg path {
   stroke: var(--bg-blue);
-  stroke-width:3;
+  stroke-width:2;
 }
+/* customer numbering for ul */
+ul.group-list {
+  counter-reset: item;
+}
+ul.group-list > li {
+  color: var(--gray-dark);
+  counter-increment: item;
+  position: relative;
+}
+ul.group-list > li:hover,
+ul.group-list > li:focus {
+  color: var(--gray-darker);
+}
+ul.group-list > li > label::before {
+  content: counter(item)":";
+  position: absolute;
+  left: -4px;
+  top: 0;
+  text-align: right;
+  width:28px;
+}
+ul.group-list > li > label.nonum::before {
+  content: "" !important;
+}
+/* end customer numbering for ul */
+
 /**
  * Styling second level list items
  */
@@ -459,7 +489,7 @@ div.sidenav li > label > div {
 
 .nav__list input[type=checkbox]:checked + label + ul {
   /* reset the height when checkbox is checked */
-  max-height: 100%;
+  max-height: 2000px; /* must be higher than div will expand to work */
 }
 
 /**
@@ -489,7 +519,7 @@ label > svg {
 .nav__list input[type=checkbox]:checked + label > svg > path,
 .nav__list input[type=checkbox]:checked:hover + label > svg > path {
   stroke: var(--bg-blue);
-  stroke-width: 2;
+  stroke-width: 3;
 }
 /* end sidemenu */
 
@@ -555,20 +585,9 @@ section > p {
   line-height: 25px;
 }
 blockquote {
-  margin: 0 0 0 10px;
+  margin: 0 0 0 25px;
   padding: 0;
   quotes: "\201C""\201D";
-}
-blockquote:before {
-  color: var(--bg-blue);
-  content: open-quote;
-  font-family: zenon,sans-serif;
-  font-weight: 500;
-  font-style: italic;
-  font-size: 47px;
-  line-height: 0.1em;
-  margin-right: 10px;
-  vertical-align: -0.4em;
 }
 blockquote p {
   display: inline;
@@ -578,6 +597,19 @@ blockquote p {
   color: var(--gray-darker);
   font-size: 16.3px;
   line-height: 25px;
+  position: relative;
+}
+blockquote p:before {
+  color: var(--bg-blue);
+  content: open-quote;
+  font-family: zenon,sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 47px;
+  line-height: 0.1em;
+  position:absolute;
+  top: 22.5px;
+  left: -28px;
 }
 footer {
   width: 100%;
@@ -620,7 +652,7 @@ footer {
   }
   .navbar > a {
     height: 75px;
-    font-size: 18px;
+    /*font-size: 18px;*/
     padding: 22px 0px 0px 0px;
     margin-right: 45px;
   }
@@ -648,6 +680,12 @@ footer {
   }
   .sidebar  {
     left: -400px;
+  }
+  .sidenav {
+    padding: 50px 0px 87px 50px;
+  }
+  .sidenav li > label > div {
+    padding-right: 25px;
   }
   .hr {
     max-width: 385px;
