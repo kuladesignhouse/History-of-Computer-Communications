@@ -363,9 +363,12 @@ ul.nav__list {
 .sidenav a,
 .sidenav label {
   display: block;
-  /*padding: .5rem;*/
   -webkit-transition: all .25s ease-in;
   transition: all .25s ease-in;
+}
+.sidenav a,
+.sidenav label {
+  text-decoration: none;
 }
 .sidenav a:focus, .sidenav a:hover,
 .sidenav label:focus,
@@ -482,6 +485,19 @@ ul.group-list > li > label.nonum::before {
   background-color: var(--selected);
   color: var(--bg-blue);
 
+}
+/**
+ * Styling third level list items
+ */
+.sub-sub-group-list a,
+.sub-sub-group-list label {
+  padding-left: 28px;
+}
+.sub-sub-group-list a:focus, .sub-sub-group-list a:hover,
+.sub-sub-group-list label:focus,
+.sub-sub-group-list label:hover {
+  background-color: var(--hovered);
+  color: var(--gray-darker);
 }
 /**
  * Hide nested lists
