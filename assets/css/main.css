@@ -169,8 +169,9 @@ svg#vertical {
   position: sticky;
   top: 0;
   background-color: #fff;
-  margin-left: 10px;
+  margin-left: 27px;
   border: 1px solid;
+  border-top: none;
   padding: 10px;
   box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
   width:58px;
@@ -196,39 +197,47 @@ svg#vertical {
   border: 0;
   margin: 0;
   margin-top: 5px;
-  overflow: visible; }
-  .burg.is-active .burg-inner,
-  .burg.is-active .burg-inner::before,
-  .burg.is-active .burg-inner::after {
-    background-color: var(--bg-blue); }
-
+  overflow: visible;
+}
+.burg.is-active .burg-inner,
+.burg.is-active .burg-inner::before,
+.burg.is-active .burg-inner::after {
+  background-color: var(--bg-blue); 
+}
 .burg-box {
   width: 36px;
   height: 20px;
   display: inline-block;
-  position: relative;}
-
+  position: relative;
+}
 .burg-inner {
   display: block;
   top: 50%;
-  margin-top: -2px;}
-  .burg-inner, .burg-inner::before, .burg-inner::after {
-    width: 36px;
-    height: 4px;
-    background-color: var(--bg-blue);
-    border-radius: 4px;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease; }
-  .burg-inner::before, .burg-inner::after {
-    content: "";
-    display: block; }
-  .burg-inner::before {
-    top: -10px; }
-  .burg-inner::after {
-    bottom: -10px; }
-
+  margin-top: -2px;
+}
+.burg-inner,
+.burg-inner::before,
+.burg-inner::after {
+  width: 36px;
+  height: 4px;
+  background-color: var(--bg-blue);
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+.burg-inner::before,
+.burg-inner::after {
+  content: "";
+  display: block;
+}
+.burg-inner::before {
+  top: -10px;
+}
+.burg-inner::after {
+  bottom: -10px;
+}
 .burg--spin .burg-inner {
   transition-duration: 0.22s;
   transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
@@ -691,7 +700,33 @@ footer {
     max-width: 385px;
   }
   #menutab {
-    margin-left: 59px;
+    margin-left: 50px;
+    border: none;
+    padding: 10px;
+    width:45px;
+    height: 38px;
+  }
+  .burg {
+    margin-top: 0;
+  }
+  .burg-box {
+    width: 20.948px;
+    height: 12.414px;
+  }
+  .burg-inner,
+  .burg-inner::before,
+  .burg-inner::after {
+    width: 20.948px;
+    height: 3px;
+  }
+  .burg-inner::before {
+    top: -8px;
+  }
+  .burg-inner::after {
+    bottom: -8px;
+  }
+  #menutab > svg {
+    width: 20.948px;
   }
   .client-content {
     margin: 79px 59px 70px;
