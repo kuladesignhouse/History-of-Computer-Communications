@@ -22,7 +22,7 @@ searchbar.onfocus = function(e){
   showResults();
 }
 
-var menu = document.getElementById("sidemenu");
+var menu = document.querySelector(".sidebar");
 
 function sidemenu() {
   if (searchResults.classList.contains("slide-in-right")) {
@@ -54,4 +54,24 @@ function showResults() {
 
 function hideResults() {
   searchResults.classList.remove("slide-in-right");
+}
+
+function UnCheckAll(selected_element){
+    console.log(selected_element.id);
+	var items=document.getElementsByName('nav');
+	for(var i=0; i<items.length; i++){
+		if(items[i].type=='checkbox' && items[i].id !== selected_element.id) {
+			items[i].checked=false;
+		}
+	}
+}
+
+function UnCheck(selected_element){
+    console.log(selected_element.id);
+	var items=document.getElementsByName('subnav');
+	for(var i=0; i<items.length; i++){
+		if(items[i].type=='checkbox' && items[i].id != selected_element.id) {
+			items[i].checked=false;
+		}
+	}
 }
