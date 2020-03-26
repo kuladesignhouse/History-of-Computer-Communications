@@ -276,7 +276,7 @@ svg#vertical {
   top: 0px;
   opacity: 1;
 }
-.sidebar  {
+.sidebar {
   position: absolute;
   top: 0;
   left: -330px;
@@ -284,10 +284,13 @@ svg#vertical {
   height: 100%;
   transition: 0.4s;
   opacity: 0;
+  background-color: var(--sidebar-bg) !important;
+  box-shadow: none;
 }
 .sidebar.slide-in-left  {
   left: 0;
   opacity: 1;
+  box-shadow: 6px -1px 12px rgba(0,0,0,0.16);
 }
 .sidenav {
   font-family: acumin-pro, sans-serif;
@@ -298,14 +301,10 @@ svg#vertical {
   top: 0;
   overflow: scroll;
   max-height: 100vh;
-  background-color: var(--sidebar-bg) !important;
-  box-shadow: none;
+  /*background-color: var(--sidebar-bg) !important;*/
   border-right: 1px solid #E0E0E0;
   border-top: 1px solid #E0E0E0;
   padding: 50px 0px 87px 27px;
-}
-.sidebar.slide-in-left > .sidenav {
-  box-shadow: 6px -1px 12px rgba(0,0,0,0.16);
 }
 .sidenav::-webkit-scrollbar {
   display: none;
@@ -688,8 +687,6 @@ footer {
   .sidebar {
    left: 0px !important;
    opacity: 1;
-  }
-  .sidebar > .sidenav {
    box-shadow: 6px -1px 12px rgba(0,0,0,0.16);
   }
   .client-content {
