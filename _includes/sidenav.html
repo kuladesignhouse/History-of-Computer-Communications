@@ -31,7 +31,7 @@
                     <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
                   </svg>
                   {% else %}
-                  <a href="{{chapter.url}}">
+                  <a href="https://kuladesignhouse.github.io/History-of-Computer-Communications{{chapter.url}}">
                     <div>{{chapter.title}}</div>
                     <svg xmlns="http://www.w3.org/2000/svg" >
                       <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
@@ -44,7 +44,7 @@
                 <ul class="sub-group-list">
               {% for section in sections %}
                 {% if section.chapter == chapter.chapter %}
-                  <li><a href="{{section.url}}" {% if section.url == page.url %}class="selected"{% endif %}>{{section.title}}</a></li>
+                  <li><a href="https://kuladesignhouse.github.io/History-of-Computer-Communications{{section.url}}" {% if section.url == page.url %}class="selected"{% endif %}>{{section.title}}</a></li>
                 {% endif %}
               {% endfor %}
                 </ul>
