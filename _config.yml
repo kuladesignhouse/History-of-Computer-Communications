@@ -25,12 +25,15 @@ collections:
     sections:
         output: true
         sort_by: order
-        permalink: /History-of-Computer-Communications/section/:path/
+        permalink: /section/:path/
     chapters:
         output: true
         sort_by: order
-        permalink: /History-of-Computer-Communications/chapter/:path/
+        permalink: /chapter/:path/
 
+include:
+  - _chapters
+  - _sections
 
 # Build settings
 markdown: kramdown
