@@ -25,11 +25,11 @@ collections:
     sections:
         output: true
         sort_by: order
-        permalink: /section/:path/
+        permalink: /History-of-Computer-Communications/section/:path/
     chapters:
         output: true
         sort_by: order
-        permalink: /chapter/:path/
+        permalink: /History-of-Computer-Communications/chapter/:path/
 
 
 # Build settings
