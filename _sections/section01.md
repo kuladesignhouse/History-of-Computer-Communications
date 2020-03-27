@@ -1,7 +1,0 @@
----
-chapter: 07
-title: "Networking: Emergence 1979-1981 LANs and DataPBXs"
----
-7.13 Ralph Ungermann and Charlie Bass and the Founding of Ungermann-Bass
-
-Forced out of Zilog at the end of 1978, Ungermann immediately began looking for the next great technological opportunity. His inclinations led him to communications: a field he had been in ever since 1967-1970 when he served on the staff of Art Collins, the founder of Collins Radio. Ungermann had participated in creating a time division multiplexer cabling system interconnecting much of the equipment in their state-of-the-art semiconductor factory — a precursor of local area networking. Leaving Collins Radio for Western Digital, Ungermann managed the development of the UART (Universal Asynchronous Receiver and Transceiver) semiconductor chip; recognized as the first major communications semiconductor chip, funded by DEC and designed in large measure by Bell of DEC. He then joined Intel and created the first USART (Universal Synchronous Asynchronous Receiver and Transceiver) chip. At Zilog, he followed up with the very successful SIO chip, a two-port serial asynchronous/synchronous interface chip, an extension of his previous work. He remembers his search:

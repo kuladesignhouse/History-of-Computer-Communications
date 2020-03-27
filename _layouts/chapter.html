@@ -1,11 +1,14 @@
 ---
 layout: layout
 ---
+<h1>{{ page.title }}</h1>
 
-<h1>Chapter {{ page.chapter }}</h1>
-
-{% for section in site.sections %}
-{% if section.chapter == page.chapter %}
-{{ section.output }}
-{% endif %}
+{% comment %}
+{% for section in site.chapters %}
+  {% if section.chapter == page.chapter %}
+    <h3>{{section.chapter}}</h3>
+  {% endif %}
 {% endfor %}
+{% endcomment %}
+
+{{content}}

@@ -181,6 +181,7 @@ svg#vertical {
   align-items:center;
   z-index: 3;
   cursor: pointer;
+   pointer-events: all;
 }
 /* menu spin */
 .burg {
@@ -277,6 +278,7 @@ svg#vertical {
   top: 0;
   width: 330px;
   height: 100%;
+  pointer-events: none;
 }
 #stickyside.slide-in-left {
   left: 0px;
@@ -293,6 +295,7 @@ svg#vertical {
   opacity: 0;
   background-color: var(--sidebar-bg) !important;
   box-shadow: none;
+  pointer-events: all;
 }
 .sidebar.slide-in-left  {
   left: 0;
@@ -312,6 +315,7 @@ svg#vertical {
   border-right: 1px solid #E0E0E0;
   border-top: 1px solid #E0E0E0;
   padding: 50px 0px 87px 27px;
+  pointer-events: all;
 }
 .sidenav::-webkit-scrollbar {
   display: none;
@@ -381,6 +385,18 @@ ul.nav__list {
 }
 .sidenav li > label > div {
   width: calc(100% - 18px);
+  padding-right: 10px;
+}
+.sidenav li > label > a {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+.sidenav li > label > a > div {
+  width: 100%;
   padding-right: 10px;
 }
 .sidenav label svg {
@@ -535,8 +551,18 @@ label > svg {
   stroke: var(--gray-darker);
 }
 .nav__list input[type=checkbox]:checked + label,
-.nav__list input[type=checkbox]:checked:hover + label {
+.nav__list input[type=checkbox]:checked:hover + label,
+.nav__list .group-list input[type=checkbox]:checked + label > a {
   color: var(--bg-blue);
+}
+.group-list a,
+.group-list label {
+  padding: 0px 25px 12px 28px;
+  color: var(--gray-dark);
+  font-weight: 600;
+}
+.group-list a {
+  padding: 12px 25px 12px 28px;
 }
 .nav__list input[type=checkbox]:checked + label > svg > path,
 .nav__list input[type=checkbox]:checked:hover + label > svg > path {
@@ -584,9 +610,41 @@ label > svg {
 }
 .client-content {
   margin: 67px 24px 37px;
+  width: 100%;
   max-width: 100%;
   display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+.prevnav {
+  display:flex;
+  justify-content: space-between;
+}
+.prevnav > a svg {
+  width: 27px;
+  height: 27px;
+}
+.prevnav > a:first-child > svg {
+  margin-right: 10px;
+}
+.prevnav > a:last-child > svg {
+  margin-left: 10px;
+}
+.prevnav a {
+  display:flex;
   justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #707070;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--gray-darker);
+  font-size: 15px;
+  font-weight: 700px;
+}
+.prevnav a span {
+  margin-top:-3px;
 }
 section > h1 {
   color: var(--gray-darker);
@@ -706,7 +764,8 @@ footer {
   .sidenav {
     padding: 50px 0px 87px 50px;
   }
-  .sidenav li > label > div {
+  .sidenav li > label > div,
+  .sidenav li > label > a > div {
     padding-right: 25px;
   }
   .hr {

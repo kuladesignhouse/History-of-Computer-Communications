@@ -55,20 +55,8 @@ function showResults() {
 function hideResults() {
   searchResults.classList.remove("slide-in-right");
 }
-
-function UnCheckAll(selected_element){
-    console.log(selected_element.id);
-	var items=document.getElementsByName('nav');
-	for(var i=0; i<items.length; i++){
-		if(items[i].type=='checkbox' && items[i].id !== selected_element.id) {
-			items[i].checked=false;
-		}
-	}
-}
-
-function UnCheck(selected_element){
-    console.log(selected_element.id);
-	var items=document.getElementsByName('subnav');
+function uncheck(selected_element, uncheck_name){
+	var items=document.getElementsByName(uncheck_name);
 	for(var i=0; i<items.length; i++){
 		if(items[i].type=='checkbox' && items[i].id != selected_element.id) {
 			items[i].checked=false;

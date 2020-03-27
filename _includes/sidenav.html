@@ -5,192 +5,58 @@
         <div class="hr"></div>
         <ul class="nav__list" >
           <li>
-            <input id="group-1" type="checkbox" name="nav" checked hidden onclick="UnCheck(this);" />
-            <label for="group-1">
-              <div>Table of Contents</div>
+            <input id="table-of-contents" type="checkbox" name="nav" checked hidden onclick="uncheck(this, 'nav');" />
+            <label for="table-of-contents">
+              <div>Table Of Contents</div>
               <svg xmlns="http://www.w3.org/2000/svg" >
                 <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
               </svg>
             </label>
+        {% if site.chapters %}
             <ul class="group-list">
+          {% for chapter in site.chapters %}
+            {% assign has_sections = '0' %}
+            {% assign sections = site.sections | sort: 'order'%}
+            {% for section in sections | sort: "order" %}
+              {% if section.chapter == chapter.chapter %}
+                {% capture has_sections %}{{ has_sections = has_sections | plus: '1'}}{% endcapture %}
+              {% endif %}
+            {% endfor %}
               <li>
-                <input id="sub-group-1" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-1">
-                  <div>Background</div>
+                <input id="chapter-{{chapter.chapter}}" type="checkbox" name="subnav" {% if page.url contains chapter.url %} checked {% endif %} hidden onclick="uncheck(this, 'subnav');" />
+                <label for="chapter-{{chapter.chapter}}" {% if chapter.appendix %}class="nonum"{% endif %}>
+                  {% if has_sections > '0' %}
+                  <div>{{chapter.title}}</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
                     <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
                   </svg>
+                  {% else %}
+                  <a href="{{chapter.url}}">
+                    <div>{{chapter.title}}</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" >
+                      <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
+                    </svg>
+                  </a>
+                  {% endif %}
                 </label>
+            {% if site.sections %}
+              {% assign sections = site.sections | sort: 'order'%}
                 <ul class="sub-group-list">
-                  <li><a href="#">Early Telecommunications History</a></li>
-                  <li><a href="#">Early Computer History</a></li>
+              {% for section in sections %}
+                {% if section.chapter == chapter.chapter %}
+                  <li><a href="{{section.url}}" {% if section.url == page.url %}class="selected"{% endif %}>{{section.title}}</a></li>
+                {% endif %}
+              {% endfor %}
                 </ul>
+            {% endif %}
               </li>
-              <li>
-                <input id="sub-group-2" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-2">
-                  <div>Introduction</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-3" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-3">
-                  <div>Data Communications: Emergence 1956-1968</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-4" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-4">
-                  <div>Networking: Vision and Packet Switching 1959 - 1968</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-5" type="checkbox" name="subnav" checked hidden onclick="UnCheck(this);" />
-                <label for="sub-group-5">
-                  <div>Data Communications: Market Competition 1969-1972</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-                <ul class="sub-group-list">
-                  <li><a href="#">Overview</a></li>
-                  <li><a href="#" class="selected">Minicomputers, Distributed Data Processing and Microprocessors</a></li>
-                  <li><a href="#">The Justice Department: IBM and AT&T</a></li>
-                  <li><a href="#">Codex: LSI modems and Front-End Processors: 1973</a></li>
-                  <li><a href="#">Wesley Chu and the Statistical Multiplexer 1966-1975</a></li>
-                  <li><a href="#">Codex: The LSI Modem and Competition 1974-1975</a></li>
-                  <li><a href="#">ADS: Rebirth as Micom 1973-1976</a></li>
-                  <li><a href="#">CPE Certification and Computer Inquiry II</a></li>
-                  <li><a href="#">Codex: The Statistical Multiplexer and Competition 1975-1976</a></li>
-                  <li><a href="#">Modems, Multiplexers and Networks 1976-1978</a></li>
-                  <li><a href="#">Micom: The Statistical Multiplexer 1976-1978</a></li>
-                  <li><a href="#">Codex and Motorola 1977-1978</a></li>
-                  <li><a href="#">Micom: Meteoric Success and Competition 1978-1979</a></li>
-                  <li><a href="#">In Perspective</a></li>
-                </ul>
-              </li>
-              <li>
-                <input id="sub-group-6" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-6">
-                  <div>Networking: Arpanet 1969-1972</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-7" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-7">
-                  <div>Data Communications: Market Order 1973-1979</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-8" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-8">
-                  <div>Networking: Diffusion 1972-1979</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-9" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-9">
-                  <div>Networking: Emergence 1979-1981</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-10" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-10">
-                  <div>Networking: Market Competition 1981-1983</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-11" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-11">
-                  <div>Standards: An Enabling Institution 1979 -1984</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-12" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-12">
-                  <div>Networking: Market Order: LANs 1983-1986</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-13" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-13">
-                  <div>Data Communications: Adaptation 1979-1986</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>              
-              <li>
-                <input id="sub-group-14" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-14">
-                  <div>Internetworking: Emergence 1985-1988</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-15" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-15">
-                  <div>Thoughts moving forward 1988-2020</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-16" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-16" class="nonum">
-                  <div>Appendix A: Market Research</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
-              <li>
-                <input id="sub-group-17" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
-                <label for="sub-group-17" class="nonum">
-                  <div>Appendix B: Supporting Documents</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                </label>
-              </li>
+          {% endfor %}
             </ul>
+        {% endif %}
           </li>
           <li>
-            <input id="group-2" type="checkbox" name="nav" hidden onclick="UnCheckAll(this);" />
-            <label for="group-2">
+            <input id="market-sector" type="checkbox" name="nav" hidden onclick="uncheck(this, 'nav');" />
+            <label for="market-sector">
               <div>Market Sector</div>
               <svg xmlns="http://www.w3.org/2000/svg" >
                 <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
@@ -198,7 +64,7 @@
             </label>
             <ul class="group-list">
               <li>
-                <input id="sub-group-01" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-01" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-01" class="nonum">
                   <div>Data Communications</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -212,7 +78,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-02" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-02" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-02" class="nonum">
                   <div>Networking</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -226,7 +92,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-03" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-03" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-03" class="nonum">
                   <div>Internetworking</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -242,8 +108,8 @@
             </ul>
           </li>
           <li>
-            <input id="group-3" type="checkbox" name="nav" hidden />
-            <label for="group-3">
+            <input id="companies-organization" type="checkbox" name="nav" hidden onclick="uncheck(this, 'nav');" />
+            <label for="companies-organization">
               <div>Companies/Organization</div>
               <svg xmlns="http://www.w3.org/2000/svg" >
                 <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
@@ -251,7 +117,7 @@
             </label>
             <ul class="group-list">
               <li>
-                <input id="sub-group-001" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-001" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-001" class="nonum">
                   <div>Startups</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -324,7 +190,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-002" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-002" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-002" class="nonum">
                   <div>Existing Companies</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -342,7 +208,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-003" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-003" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-003" class="nonum">
                   <div>Government</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -362,7 +228,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-004" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-004" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-004" class="nonum">
                   <div>Standards Organizations</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -378,7 +244,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-005" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-005" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-005" class="nonum">
                   <div>Universities</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -398,7 +264,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-006" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-006" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-006" class="nonum">
                   <div>Trade Organizations</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -411,7 +277,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-007" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-007" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-007" class="nonum">
                   <div>Venture Capital Firms</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -430,7 +296,7 @@
                 </ul>
               </li>
               <li>
-                <input id="sub-group-008" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-008" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-008" class="nonum">
                   <div>Investment Banks</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -448,16 +314,16 @@
             </ul>
           </li>
           <li>
-            <input id="group-4" type="checkbox" name="nav" hidden />
-            <label for="group-4">
-              <div>Interview Transcripts</div>
+            <input id="interview-transcripts" type="checkbox" name="nav" hidden onclick="uncheck(this, 'nav');" />
+            <label for="interview-transcripts">
+              <div>interview-transcripts</div>
               <svg xmlns="http://www.w3.org/2000/svg" >
                 <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
               </svg>
             </label>
             <ul class="group-list">
               <li>
-                <input id="sub-group-0001" type="checkbox" name="subnav" hidden onclick="UnCheck(this);" />
+                <input id="sub-group-0001" type="checkbox" name="subnav" hidden onclick="uncheck(this, 'subnav');" />
                 <label for="sub-group-0001">
                   <div>Interview Transcripts</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
@@ -473,4 +339,3 @@
           </li>
         </ul>
       </div>
-
