@@ -5,4 +5,4 @@ title: "Early Telecommunications History"
 order: 1
 ---
 
-# {{page.title}}
+content placeholder
