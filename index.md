@@ -1,7 +1,7 @@
 ---
 layout: layout
+title: "Chapter 7 Networking: Emergence 1979-1981 LANs and DataPBXs"
 ---
-# Chapter 7 Networking: Emergence 1979-1981 LANs and DataPBXs
 
 7.13 Ralph Ungermann and Charlie Bass and the Founding of Ungermann-Bass
 
