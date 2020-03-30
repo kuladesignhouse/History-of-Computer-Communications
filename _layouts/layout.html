@@ -6,7 +6,45 @@
     <div class="main">
       <div class="content">
         <div class="client-content">
-          <section><h1>{{ page.title }}</h1>{{ content }}</section>
+          <section>
+
+
+        {% for chapter in site.chapters %}
+          {% assign selected_chapter = '' %}
+          {% if page.chapter == chapter.chapter %}
+            <h1>Chapter {{ chapter.chapter }} - {{ chapter.title }}</h1>
+            {% assign sections = site.sections | sort: 'order' %}
+            {% for section in sections %}
+                    <script>console.log("t {{ section.title }}");</script>
+              {% if page.chapter == section.chapter %}
+                {% if page.title == section.title %}
+                  {% assign section_id = section.url | remove: "/section/" | remove: "/" %}
+                  <p>{{ section_id }} {{ section.title }}</p>
+                  {% unless forloop.first %}
+                     <script>console.log("notfirst");</script>
+                  {% endunless %}
+
+                  {% unless forloop.last %}
+                     <script>console.log("notlast");</script>
+                  {% endunless %}
+
+                  {% assign selected_chapter = section.chapter %}
+                  <script>
+                    console.log("{{ selected_chapter }}");
+                    console.log("{{ section.next.url }}");
+                    console.log("{{ section.previous.url }}");
+                  </script>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+
+
+
+
+            {{ content }}
+          </section>
 
           <div class="prevnav">
             <div>
@@ -38,34 +76,6 @@
               {% endif %}
             </div>
           </div>
-          
-        {% for chapter in site.chapters %}
-          {% assign selected_chapter = '' %}
-          {% if page.chapter == chapter.chapter %}
-            {% assign sections = site.sections | sort: 'order' %}
-            {% for section in sections %}
-                                   <script>console.log("t {{ section.title }}");</script>
-              {% if page.chapter == section.chapter %}
-                {% if page.title == section.title %}
-                  {% unless forloop.first %}
-                     <script>console.log("notfirst");</script>
-                  {% endunless %}
-
-                  {% unless forloop.last %}
-                     <script>console.log("notlast");</script>
-                  {% endunless %}
-
-                  {% assign selected_chapter = section.chapter %}
-                  <script>
-                    console.log("{{ selected_chapter }}");
-                    console.log("{{ section.next.url }}");
-                    console.log("{{ section.previous.url }}");
-                  </script>
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-        {% endfor %}
         </div>      
       </div>
       

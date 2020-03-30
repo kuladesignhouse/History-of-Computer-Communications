@@ -17,7 +17,7 @@
           {% for chapter in site.chapters %}
             {% assign has_sections = '0' %}
             {% assign sections = site.sections | sort: 'order'%}
-            {% for section in sections | sort: "order" %}
+            {% for section in sections %}
               {% if section.chapter == chapter.chapter %}
                 {% capture has_sections %}{{ has_sections = has_sections | plus: '1'}}{% endcapture %}
               {% endif %}
