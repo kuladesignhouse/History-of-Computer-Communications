@@ -1,11 +1,18 @@
-
+    {% assign contents_checked = '' %}
+    {% if site.chapters %}
+      {% for chapter in site.chapters %}
+        {% if page.chapter == chapter.chapter %}
+          {% assign contents_checked = 'checked' %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
       <div class="sidenav">
         <!--<a href="javascript:void(0)" class="closebtn" onclick="sidemenu()">&times;</a>-->
         <h1>Explore</h1>
         <div class="hr"></div>
         <ul class="nav__list" >
           <li>
-            <input id="table-of-contents" type="checkbox" name="nav" hidden onclick="uncheck(this, 'nav');" />
+            <input id="table-of-contents" type="checkbox" name="nav" {{ contents_checked }} hidden onclick="uncheck(this, 'nav');" />
             <label for="table-of-contents">
               <div>Table Of Contents</div>
               <svg xmlns="http://www.w3.org/2000/svg" >
@@ -16,37 +23,21 @@
             <ul class="group-list">
           {% for chapter in site.chapters %}
             {% assign has_sections = '0' %}
-            {% assign sections = site.sections | sort: 'order'%}
+            {% assign sections = site.sections%}
             {% for section in sections %}
               {% if section.chapter == chapter.chapter %}
                 {% capture has_sections %}{{ has_sections = has_sections | plus: '1'}}{% endcapture %}
               {% endif %}
             {% endfor %}
               <li>
-                <input id="chapter-{{chapter.chapter}}" type="checkbox" name="subnav" {% if page.url contains chapter.url %} checked {% endif %} hidden onclick="uncheck(this, 'subnav');" />
+                <input id="chapter-{{chapter.chapter}}" type="checkbox" name="subnav" {% if page.chapter == chapter.chapter %} checked {% endif %} hidden onclick="uncheck(this, 'subnav');" />
                 <label for="chapter-{{chapter.chapter}}" {% if chapter.appendix %}class="nonum"{% endif %}>
-                  {% if has_sections > '0' %}
                   <div>{{chapter.title}}</div>
                   <svg xmlns="http://www.w3.org/2000/svg" >
                     <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
                   </svg>
-                  {% else %}
-                  <div>{{chapter.title}}</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                  </svg>
-                  {% comment %}
-                  <a href="{{ site.baseurl }}{{ chapter.url }}">
-                    <div>{{chapter.title}}</div>
-                    <svg xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M.8.6l4.1 5.1-4.1 5.2" fill="none" stroke="#7E7E7E" stroke-width="1"/>
-                    </svg>
-                  </a>
-                  {% endcomment %}
-                  {% endif %}
                 </label>
             {% if site.sections %}
-              {% assign sections = site.sections | sort: 'order'%}
                 <ul class="sub-group-list">
               {% for section in sections %}
                 {% if section.chapter == chapter.chapter %}

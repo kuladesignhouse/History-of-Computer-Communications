@@ -23,11 +23,9 @@ url: ""
 collections:
     sections:
         output: true
-        sort_by: order
         permalink: /section/:path/
     chapters:
         output: false
-        sort_by: order
         permalink: /chapter/:path/
 
 include:
