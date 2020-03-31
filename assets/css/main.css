@@ -670,7 +670,8 @@ section a {
   font-weight: 700;
 }
 section a[name^="footnote"] {
-    color:var(--bg-blue);
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 blockquote {
   margin: 0 0 0 25px;
